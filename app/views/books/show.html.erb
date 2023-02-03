@@ -17,11 +17,17 @@
           </td>
           <td><%= link_to @book.title, @book %></td>
           <td><%= @book.body %></td>
-           <% if @user == current_user %>
+          <% if @user == current_user %>
             <td><%= link_to 'Edit', edit_book_path(@book), class: "btn btn-sm btn-success" %></td>
             <td><%= link_to 'Destroy', @book, method: :delete, data: { confirm: '本当に消しますか？' }, class: "btn btn-sm btn-danger"%></td>
-           <% end %>
+          <% end %>
         </tr>
+        <td>
+          <%= form_with model: [@book, @book_comment] do |f| %>
+            <%= f.text_area :comment, style: "width:100%", rows: "4" %>
+            <%= f.submit "送信する" %>
+          <% end %>
+        </td>
       </table>
     </div>
   </div>
