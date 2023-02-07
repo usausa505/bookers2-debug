@@ -10,13 +10,11 @@
   </head>
   <body>
     <%= render 'layouts/header' %>
-      <% if user_signed_in? %>
-        <%= render 'searches/search_form' %>
-      <% end %>
       <main>
-        <p id="notice">
-          <%= flash[:notice] %>
-        </p>
+        <p id="notice"><%= flash[:notice] %></p>
+        <div class="d-flex justify-content-center mb-2">
+          <%= render 'searches/search_form' %>
+        </div>
         <%= yield %>
       </main>
     <%= render 'layouts/footer' %>
